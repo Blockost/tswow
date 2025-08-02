@@ -630,12 +630,13 @@ export function BuildPaths(pathIn: string, tdb: string) {
                     `_deps/tracy-build/${type}/TracyClient.pdb`,
                 ]
                 :
+                // TODO 2025-08-02 Blockost Make it so it works for both macos and linux
                 [
-                    `install/trinitycore/lib/libcommon.so`,
-                    `install/trinitycore/lib/libdatabase.so`,
-                    `install/trinitycore/lib/libgame.so`,
-                    `install/trinitycore/lib/libshared.so`,
-                    `install/trinitycore/lib/libTracyClient.so`,
+                    `install/trinitycore/lib/libcommon.dylib`,
+                    `install/trinitycore/lib/libdatabase.dylib`,
+                    `install/trinitycore/lib/libgame.dylib`,
+                    `install/trinitycore/lib/libshared.dylib`,
+                    `install/trinitycore/lib/libTracyClient.dylib`, // Path updated for macOS (.dylib instead of .so)
                 ]
                 ).map(x=>new WFile(mpath(pathIn,x)))
             })),
